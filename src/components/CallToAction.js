@@ -11,17 +11,16 @@ const CallToAction = () => {
                     <p className="text-lg text-white mb-6">
                         Sign up for our newsletter and be the first to know about our latest deals and promotions.
                     </p>
-                    <div className="flex justify-center">
+                    <div className="flex flex-col justify-center sm:flex-row">
                         <input
                             type="email"
                             placeholder="Enter your email"
-                            className="rounded-l-md px-4 py-2 bg-white text-gray-800 border border-r-0 w-72
-                            outline-none focus:outline-none focus:shadow-outline"
+                            className="rounded-l-md px-4 py-2 bg-white text-gray-800 border border-r-0 w-full sm:w-72 outline-none focus:outline-none focus:shadow-outline"
                         />
-                        <button className="bg-blue-500 hover:bg-cyan-600 px-6 py-2 text-white font-semibold rounded-r-md">
+                        <button className="bg-blue-500 hover:bg-cyan-600 px-6 py-2 text-white font-semibold rounded-r-md mt-2 sm:mt-0 sm:rounded-l-none">
                             Subscribe
                         </button>
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>

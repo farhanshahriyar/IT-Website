@@ -1,36 +1,3 @@
-// import React from 'react';
-// import { CSSTransition, TransitionGroup } from 'react-transition-group';
-
-// const ProductInfo = () => {
-//   const products = [
-//     {
-//         id: 1,
-//         title: 'Smartphone',
-//         image: 'https://via.placeholder.com/200',
-//         price: '$599.99',
-//       },
-//   ];
-
-//   return (
-//     <div className="container mx-auto px-4">
-//       <TransitionGroup className="grid grid-cols-1 md:grid-cols-2 gap-8">
-//         {products.map((product) => (
-//           <CSSTransition key={product.id} timeout={300} classNames="fade">
-//             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-//               <img src={product.image} alt={product.title} className="w-full h-48 object-cover" />
-//               <div className="p-4">
-//                 <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
-//                 <p className="text-gray-600 mt-2">{product.price}</p>
-//               </div>
-//             </div>
-//           </CSSTransition>
-//         ))}
-//       </TransitionGroup>
-//     </div>
-//   );
-// };
-
-// export default ProductInfo;
 
 import React from 'react';
 import ReactImageMagnify from 'react-image-magnify';
