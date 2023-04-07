@@ -4,14 +4,17 @@ import Hero from './components/Hero';
 import ProductList from './components/ProductList';
 import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
+import ProductInfo from './components/ProductInfo';
+
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Hero />
+      {/* <Hero /> */}
       {/* <ProductList /> */}
       {/* <AboutUs /> */}
+      <ProductInfo/>
       <Footer />
     </div>
   );
