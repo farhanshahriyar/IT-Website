@@ -1,86 +1,10 @@
-
-
-// // import React from 'react';
-// // import { Link } from 'react-router-dom';
-
-// // const Navbar = () => {
-// //   return (
-// //     <nav className="bg-gray-800 py-4 px-6 flex justify-between items-center">
-// //       <div className="text-white font-semibold text-xl">
-// //       <Link to="/" className="text-white">
-// //       Reven IT Store
-// //           </Link>
-// //       </div>
-// //       <ul className="flex space-x-4">
-// //         <li>
-// //           <Link to="/" className="text-white">
-// //             Home
-// //           </Link>
-// //         </li>
-// //         <li>
-// //           <Link to="/products" className="text-white">
-// //             Products
-// //           </Link>
-// //         </li>
-// //         <li>
-// //           <Link to="/about" className="text-white">
-// //             About Us
-// //           </Link>
-// //         </li>
-// //       </ul>
-// //     </nav>
-// //   );
-// // };
-
-// // export default Navbar;
-
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// const Navbar = () => {
-//   return (
-//     <nav className="bg-gray-800 py-4 px-6 flex justify-between items-center">
-//       <div className="text-white font-semibold text-xl">
-//         <Link to="/" className="text-white">
-//           Reven IT Store
-//         </Link>
-//       </div>
-//       <ul className="flex space-x-4 items-center">
-//         <li>
-//           <Link to="/" className="text-white">
-//             Home
-//           </Link>
-//         </li>
-//         <li>
-//           <Link to="/products" className="text-white">
-//             Products
-//           </Link>
-//         </li>
-//         <li>
-//           <Link to="/about" className="text-white">
-//             About Us
-//           </Link>
-//         </li>
-//         <li>
-//           <i className="bx bx-cart text-white" style={{ fontSize: '1.7rem' }}></i>
-//         </li>
-//         <li>
-//           <i className="bx bx-log-in text-white" style={{ fontSize: '1.7rem' }}></i>
-//         </li>
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../App';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { cart } = React.useContext(CartContext)
 
   return (
     <nav className="bg-gray-800 py-4 px-6 flex flex-wrap items-center justify-between">
@@ -116,10 +40,19 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <Link to="/contact" className="text-white block py-2 px-2">
+            Contact
+          </Link>
+        </li>
+        <li>
+          <div className='relative inline-block'> 
           <i
             className="bx bx-cart text-white block py-2 px-2"
             style={{ fontSize: '1.5rem' }}
-          ></i>
+          >
+          </i>
+          <span className='absolute top-0 right-0 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center p-1'>{cart.reduce((a,b)=>a+b.count, 0)}</span>
+          </div>
         </li>
         <li>
           <i

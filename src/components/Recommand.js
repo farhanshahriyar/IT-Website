@@ -1,46 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import { useNavigate } from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const Recommand = () => {
-    const products = [
-        {
-          id: 1,
-          title: 'Smartphone',
-          image: 'https://via.placeholder.com/200',
-          price: '$599.99',
-        },
-        {
-          id: 2,
-          title: 'Laptop',
-          image: 'https://via.placeholder.com/200',
-          price: '$999.99',
-        },
-        {
-          id: 3,
-          title: 'Smart TV',
-          image: 'https://via.placeholder.com/200',
-          price: '$799.99',
-        },
-        {
-          id: 4,
-          title: 'Headphones',
-          image: 'https://via.placeholder.com/200',
-          price: '$199.99',
-        },
-        {
-          id: 5,
-          title: 'Graphics Card',
-          image: 'https://via.placeholder.com/200',
-          price: '$599.99',
-        },
-      ];
+    const [products, setProducts] = React.useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      // fetch('http://localhost:5000/categories')
+      //   .then((response) => response.json())
+      //   .then((data) => setCategories(data.map((category) => category.name)));
+  
+      // fetch('http://localhost:5000/products')
+      //   .then((response) => response.json())
+      //   .then((data) => setProducts(data));
+      async function fetchData() {
+        const response = await fetch('db.json');
+        const data = await response.json();
+        console.log(data)
+        setProducts(data.products);
+      }
+      fetchData();
+    }, []);
+
     
       return (
         <section className="bg-white py-12 px-4">
@@ -77,7 +66,7 @@ const Recommand = () => {
     
               {products.map((product) => (
                 <SwiperSlide key={product.id}>
-                  <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <div className="bg-white rounded-lg shadow-md overflow-hidden" onClick={()=> navigate(`/product/${product.id}`)}>
                     <img
                       src={product.image}
                       alt={product.title}
