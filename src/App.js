@@ -7,6 +7,7 @@ import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
 import ProductInfo from './components/ProductInfo';
 import Contact from './components/Contact';
+import Cart from './components/Cart';
 
 export const CartContext = React.createContext()
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/product/:id" element={<ProductInfo />} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/cart" element={<Cart/>} />
         </Routes>
         <Footer />
       </Router>

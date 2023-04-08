@@ -45,6 +45,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <Link to="/cart" className="text-white block py-2 px-2">
           <div className='relative inline-block'> 
           <i
             className="bx bx-cart text-white block py-2 px-2"
@@ -53,6 +54,7 @@ const Navbar = () => {
           </i>
           <span className='absolute top-0 right-0 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center p-1'>{cart.reduce((a,b)=>a+b.count, 0)}</span>
           </div>
+          </Link>
         </li>
         <li>
           <i
